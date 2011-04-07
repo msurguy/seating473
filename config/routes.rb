@@ -3,12 +3,9 @@ Classroom::Application.routes.draw do
   #resources :loginseatings
 
   resources :users
-
-  
   match '/seatings/index' => 'seatings#index', :as => :seating
-  
   resources :loginseatings do
-	resources :comments
+  	resources :comments
   end
   
   match '/loginseatings/' => 'loginseatings#index', :as => :loginseating
@@ -80,4 +77,4 @@ Classroom::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
   root :to => "seatings#index"
-  end
+end
